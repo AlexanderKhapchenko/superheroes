@@ -6,7 +6,7 @@ export const heroes: Superhero[] = [
     nickname: 'Superman',
     real_name: 'Clark Kent',
     origin_description:
-      "he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's destruction...",
+      "he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's...",
     superpowers:
       'solar energy absorption and healing factor, solar flare and heat vision,\n' +
       'solar invulnerability, flight...',
@@ -20,7 +20,7 @@ export const heroes: Superhero[] = [
     nickname: 'Ryu',
     real_name: 'Ryu',
     origin_description:
-      'Ryu has been the protagonist of the Street Fighter series since the first game and has appeared as a playable character in several crossover games involving the franchise',
+      'Ryu has been the protagonist of the Street Fighter series since the first game and has appeared as a playable character in several crossover games',
     superpowers: 'fight in head, one shot, strong heart',
     catch_phrase: 'Let\'s team up! Ugh! · "Go for it!',
     createdAt: new Date('2022-10-26 20:15:20.008'),
@@ -42,7 +42,7 @@ export const heroes: Superhero[] = [
     nickname: 'Batmen',
     real_name: 'Bruce Wayne',
     origin_description:
-      'After witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne as a child, he swore vengeance against criminals, an oath tempered by a sense of justice...',
+      'After witnessing the murder of his parents Dr. Thomas Wayne and Martha Wayne as a child, he swore vengeance against criminals...',
     superpowers:
       "Omnipotence, Bane's Venom, Various Lantern Power Rings,Super Strength, Genie Magic, Echolocation",
     catch_phrase: "I'm Batman.",
@@ -54,9 +54,9 @@ export const heroes: Superhero[] = [
     nickname: 'Doctor Strange',
     real_name: 'Stephen',
     origin_description:
-      "he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El, moments before Krypton's destruction...",
+      'he was born Kal-El on the planet Krypton, before being rocketed to Earth as an infant by his scientist father Jor-El',
     superpowers:
-      'Mastery of magic Utilizes mystical artifacts, such as the Cloak of Levitation and the Eye of Agamotto Genius-level intellect Skilled martial artist Gifted physician and surgeon',
+      'Mastery of magic Utilizes mystical artifacts, such as the Cloak of Levitation and the Eye of Agamotto Genius-level',
     catch_phrase:
       'We Never Lose Our Demons, Mordo. We Only Learn To Live Above Them.',
     createdAt: new Date('2022-10-26 20:15:20.008'),
@@ -67,7 +67,7 @@ export const heroes: Superhero[] = [
     nickname: 'Wanda',
     real_name: 'Scarlet',
     origin_description:
-      'Wanda Maximoff was born in 1989 in Sokovia, Eastern Europe, unaware that she was born a witch and unknowingly engaging in basic hex magic...',
+      'Wanda Maximoff was born in 1989 in Sokovia, Eastern Europe, unaware that she was born a witch and unknowingly',
     superpowers: 'Magic',
     catch_phrase: 'You will',
     createdAt: new Date('2022-10-26 20:15:20.008'),
