@@ -12,7 +12,17 @@ model Superhero {
   nickname            String
   real_name           String
   origin_description  String
-  superpowers         String[]
+  superpowers         String
   catch_phrase        String
-  images              String[]
+  images              Image[]
+  createdAt           DateTime       @default(now())
+  updatedAt           DateTime       @updatedAt
+}
+
+model Image {
+  id                  String         @id @default(uuid())
+  hero                Superhero      @relation(fields: [hero_id], references: [id], onDelete: Cascade)
+  hero_id             String
+  url                 String         @db.VarChar(300)
+  delete_hash         String?
 }
