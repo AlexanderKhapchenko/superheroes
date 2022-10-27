@@ -21,8 +21,8 @@ const heroFieldsSchema = Yup.object().shape({
     .max(150, 'Origin description must not exceed 150 characters')
     .trim(),
   superpowers: Yup.string()
-    .min(2, 'Superpower must be at least 2 characters')
-    .max(150, 'Superpower must not exceed 150 characters')
+    .min(2, 'Superpowers must be at least 2 characters')
+    .max(150, 'Superpowers must not exceed 150 characters')
     .required('Origin description is required')
     .trim(),
   catch_phrase: Yup.string()

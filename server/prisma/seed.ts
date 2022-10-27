@@ -6,6 +6,9 @@ import { images } from './seeds/images';
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
+  await prisma.superhero.deleteMany();
+  await prisma.image.deleteMany();
+
   for (const hero of heroes) {
     await prisma.superhero.create({
       data: hero,

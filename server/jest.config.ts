@@ -17,4 +17,5 @@ module.exports = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>',
   }),
+  setupFilesAfterEnv: ['./src/tests/prisma-mock.ts'],
 };

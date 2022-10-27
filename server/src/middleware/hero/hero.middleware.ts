@@ -55,8 +55,8 @@ const validateHeroExistMiddleware = async (
 const validateFiles = async (files: Files): Promise<void> => {
   if ('image' in files) {
     if (Array.isArray(files.image)) {
-      const validatePromises = files.image.map((img) =>
-        heroImageSchema.validate(img),
+      const validatePromises = files.image.map(
+        async (img) => await heroImageSchema.validate(img),
       );
       await Promise.all(validatePromises);
     } else {

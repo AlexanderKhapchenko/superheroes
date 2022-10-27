@@ -58,8 +58,9 @@ const heroController = {
     next: NextFunction,
   ): Promise<void> => {
     try {
-      const { id } = await heroService.createHero(req.body);
+      const hero = await heroService.createHero(req.body);
 
+      const id = hero.id;
       const image = req.files?.image;
       if (image) {
         const uploadedImages = await imageService.uploadImages(id, image);
