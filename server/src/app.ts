@@ -12,9 +12,4 @@ routes.forEach((route) => app.use(ENV.API.V1_PREFIX, route));
 
 app.use(errorsHandler);
 
-const port = ENV.APP.SERVER_PORT;
-
-app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(`Server is running at ${port}`);
-});
+export { app };
