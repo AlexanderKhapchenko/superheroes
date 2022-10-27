@@ -44,12 +44,13 @@ const HeroList: React.FC = () => {
         count={lastPage}
         page={page}
         onChange={handleChange}
-        hidden={!data.countOfHeroes}
+        hidden={data.countOfHeroes < 6}
+        data-testid="pagination"
       />
       <Grid2 container rowSpacing={4} justifyContent={'space-around'}>
         {data.heroes.map((hero) => {
           return (
-            <Grid2 key={hero.id}>
+            <Grid2 key={hero.id} data-testid={'hero-item'}>
               <HeroItem {...hero} />
             </Grid2>
           );
@@ -59,7 +60,8 @@ const HeroList: React.FC = () => {
         count={lastPage}
         page={page}
         onChange={handleChange}
-        hidden={!data.countOfHeroes}
+        hidden={data.countOfHeroes < 6}
+        data-testid="pagination"
       />
     </>
   );
