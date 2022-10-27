@@ -1,12 +1,10 @@
 import { createReadStream } from 'node:fs';
 
-import { ENV } from '@common/enums/app';
 import { ImgurResponse } from '@common/types/imgur-response/imgur-response';
 import { HttpError } from '@dtos/exceptions/error.dto';
+import client from '@services/imgur/imgur-client';
 import httpStatus from 'http-status-codes';
-import { ImgurApiResponse, ImgurClient } from 'imgur';
-
-const client = new ImgurClient({ clientId: ENV.IMGUR.CLIENT_ID });
+import { ImgurApiResponse } from 'imgur';
 
 const imgurService = {
   uploadImage: async (path: string): Promise<ImgurResponse> => {

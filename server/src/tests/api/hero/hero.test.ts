@@ -4,11 +4,14 @@ import { describe, expect, test } from '@jest/globals';
 import request from 'supertest';
 
 import { heroes } from '../../../../prisma/seeds/heroes';
+import { images } from '../../../../prisma/seeds/images';
 import { app } from '../../../app';
+import { imgurMock } from '../../imgur-mock';
 import { prismaMock } from '../../prisma-mock';
 
 describe('Test hero api', () => {
   const mockHero = heroes[0];
+  const mockImage = images[0];
 
   const expectedHero = {
     ...mockHero,
@@ -34,8 +37,21 @@ describe('Test hero api', () => {
       expect(response.body).toEqual(expectedHero);
     });
     test('The POST method with image  should return an valid response', async () => {
+      const heroWithImage = { ...mockHero, images: [mockImage] };
+      const expectedHeroWithImage = { ...expectedHero, images: [mockImage] };
+
       prismaMock.superhero.create.mockResolvedValue(mockHero);
-      prismaMock.superhero.findUnique.mockResolvedValue(mockHero);
+      prismaMock.superhero.findUnique.mockResolvedValue(heroWithImage);
+      prismaMock.image.createMany.mockResolvedValue({ count: 1 });
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      imgurMock.upload.mockResolvedValue({
+        data: {
+          link: 'mockImage.url',
+          deletehash: 'mockImage.delete_hash',
+        },
+      } as unknown);
 
       const response = await request(app)
         .post('/api/v1/hero')
@@ -48,7 +64,7 @@ describe('Test hero api', () => {
 
       expect(response.statusCode).toBe(201);
       expect(response.body).toHaveProperty('id');
-      expect(response.body).toEqual(expectedHero);
+      expect(response.body).toEqual(expectedHeroWithImage);
     });
     test('Nickname should contain only latin characters', async () => {
       const response = await request(app)
