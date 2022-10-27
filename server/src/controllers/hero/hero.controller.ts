@@ -11,8 +11,7 @@ import { heroService } from '@services/hero/hero.service';
 import { imageService } from '@services/image/image.service';
 import { imgurService } from '@services/imgur/imgur.service';
 import { NextFunction, Response } from 'express';
-import httpStatus from 'http-status-codes';
-
+import { StatusCodes } from 'http-status-codes';
 const heroController = {
   getHeroes: async (
     req: TypedRequestQuery<{ limit: string; page: string }>,
@@ -35,7 +34,7 @@ const heroController = {
           countOfHeroes,
           heroes,
         })
-        .status(httpStatus.OK);
+        .status(StatusCodes.OK);
     } catch (error) {
       next(error);
     }
@@ -47,9 +46,9 @@ const heroController = {
   ): Promise<void> => {
     try {
       const hero = await heroService.getHero(req.params.id);
-      res.json(hero).status(httpStatus.OK);
+      res.status(StatusCodes.OK).json(hero);
     } catch (error) {
-      next(new HttpError(error as Error, httpStatus.NOT_FOUND));
+      next(new HttpError(error as Error, StatusCodes.NOT_FOUND));
     }
   },
 
@@ -68,7 +67,7 @@ const heroController = {
       }
 
       const createdHero = await heroService.getHero(id);
-      res.json(createdHero).status(httpStatus.CREATED);
+      res.status(StatusCodes.CREATED).json(createdHero);
     } catch (error) {
       next(error);
     }
@@ -99,7 +98,7 @@ const heroController = {
 
       const updatedHero = await heroService.getHero(req.params.id);
 
-      res.json(updatedHero).status(httpStatus.OK);
+      res.status(StatusCodes.OK).json(updatedHero);
     } catch (error) {
       next(error);
     }
@@ -119,7 +118,7 @@ const heroController = {
       idsToDelete && (await imgurService.deleteImages(idsToDelete));
 
       const deletedHero = await heroService.deleteHero(req.params.id);
-      res.json(deletedHero).status(httpStatus.NO_CONTENT);
+      res.status(StatusCodes.NO_CONTENT).json(deletedHero);
     } catch (error) {
       next(error);
     }
