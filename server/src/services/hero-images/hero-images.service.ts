@@ -1,4 +1,4 @@
-import { prisma } from '@data/prisma-client';
+import prisma from '@data/prisma-client';
 import { Image, Prisma } from '@prisma/client';
 
 const heroImagesService = {

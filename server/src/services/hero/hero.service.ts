@@ -1,5 +1,6 @@
-import { prisma } from '@data/prisma-client';
 import { Prisma, Superhero } from '@prisma/client';
+
+import prisma from '../../data/prisma-client';
 
 const heroService = {
   getHeroes: async ({
