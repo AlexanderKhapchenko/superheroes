@@ -111,6 +111,7 @@ const HeroForm: React.FC<HeroFormProps> = ({
             type="submit"
             variant="contained"
             sx={{ marginRight: '10px' }}
+            role="submit-button"
           >
             {submitBtnText}
           </Button>

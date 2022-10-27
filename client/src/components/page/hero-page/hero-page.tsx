@@ -12,8 +12,12 @@ import {
 } from '@mui/material';
 import { useGetHeroQuery } from '@store/query/hero/hero';
 
-const HeroPage: React.FC = () => {
-  const { id } = useParams();
+interface HeroPageProps {
+  heroID?: string;
+}
+
+const HeroPage: React.FC<HeroPageProps> = ({ heroID }) => {
+  const id = heroID || useParams().id;
   const navigate = useNavigate();
   const { data, isLoading, isError, error } = useGetHeroQuery(id as string);
 
@@ -26,7 +30,7 @@ const HeroPage: React.FC = () => {
 
   return (
     <Container sx={{ marginY: 10 }} maxWidth={'md'}>
-      <TextField label="Nickname" text={data.nickname} />
+      <TextField data-testid="nickname" label="Nickname" text={data.nickname} />
       <TextField label="Real name" text={data.real_name} />
       <TextField label="Catch phrase" text={data.catch_phrase} />
       <TextField label="Description" text={data.origin_description} />
@@ -41,7 +45,7 @@ const HeroPage: React.FC = () => {
         rowHeight={300}
       >
         {data.images.map((image) => (
-          <ImageListItem key={image.id}>
+          <ImageListItem key={image.id} data-testid="hero-image">
             <img src={`${image.url}`} alt={image.id} loading="lazy" />
           </ImageListItem>
         ))}

@@ -40,7 +40,8 @@
       ],
       "@store/*": [
         "./src/store/*"
-      ]
+      ],
+      "@__mockups__/*": ["./src/__mockups__/*"]
     }
   }
 }

@@ -1,4 +1,5 @@
-/* eslint-disable import/no-default-export */
+/* eslint-disable */
+// @ts-nocheck
 import path from 'path';
 
 import react from '@vitejs/plugin-react';
@@ -18,6 +19,12 @@ export default defineConfig({
       '@helpers': path.resolve(__dirname, './src/helpers'),
       '@hooks': path.resolve(__dirname, './src/hooks'),
       '@store': path.resolve(__dirname, './src/store'),
+      '@__mockups__': path.resolve(__dirname, './src/__mockups__'),
     },
+  },
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './setupTests.ts',
   },
 });
