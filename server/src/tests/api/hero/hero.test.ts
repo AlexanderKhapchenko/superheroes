@@ -298,7 +298,7 @@ describe('Test hero api', () => {
       heroes: expectedHeroes,
     });
   });
-  test('The PATCH method should return the response 200 and 5 superheroes', async () => {
+  test('The PATCH method should return the response 200 and superhero', async () => {
     prismaMock.superhero.update.mockResolvedValue(mockHero);
     prismaMock.superhero.findUnique.mockResolvedValue(mockHero);
 
